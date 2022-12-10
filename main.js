@@ -18,6 +18,9 @@ const productDetail = document.querySelector('.product-detail')
 const productDetailImage = document.querySelector('.product-image');
 const productDetailPrice = document.querySelector('.product-info-price');
 const productDetailName = document.querySelector('.product-info-name');
+const quantityItemsCart = document.querySelector('.quantity p');
+const orderDetailContainer = document.querySelector('.detail-order');
+
 
 toggleMenu.addEventListener('click', toggleMenuDesktop);
 menuBarIcon.addEventListener('click', toggleMenuBar);
@@ -122,6 +125,8 @@ function loadProducts() {
 
         imgShoppingCart.setAttribute('src', './icons/bt_add_to_cart.svg');
         imgShoppingCart.setAttribute('alt', 'add to cart');
+        imgShoppingCart.setAttribute('data-id', product.id);
+        imgShoppingCart.addEventListener('click', e => selectedProductCart(e))
 
         figureProduct.appendChild(imgShoppingCart);
         divProducInfo.appendChild(pPrice);
@@ -159,4 +164,73 @@ function getProduct(id) {
     productDetailImage.setAttribute('src', product[0].image);
     productDetailPrice.innerText = '$' + product[0].price;
     productDetailName.innerText = product[0].name;
+}
+
+function selectedProductCart(event) {
+    let id = event.target.getAttribute('data-id');
+    product = data.filter(d => d.id == id);
+
+    idProduct = product[0].id;
+    nameProduct = product[0].name;
+    priceProduct = product[0].price;
+    imageProduct = product[0].image;
+
+    let items = {
+        'id': idProduct,
+        'name': nameProduct,
+        'price': priceProduct,
+        'image': imageProduct
+    };
+
+    addProduct(items);
+    loadQuantityItemsCart();
+    showOrders();
+
+}
+loadQuantityItemsCart()
+function loadQuantityItemsCart() {
+    let quantity = getListProduct();
+    quantityItemsCart.innerText = quantity.length
+}
+
+
+
+showOrders();
+function showOrders() {
+
+    let productList = getListProduct();
+    orderDetailContainer.innerHTML = '';
+    for (list of productList) {
+        let detailOrder = document.createElement('div');
+        detailOrder.classList.add('detail')
+
+        let detailFigure = document.createElement('figure');
+        let detailImage = document.createElement('img');
+        detailImage.setAttribute('src', list.image);
+        detailImage.setAttribute('alt', list.name);
+
+        detailFigure.appendChild(detailImage)
+
+        let pNameProduct = document.createElement('p');
+        pNameProduct.classList.add('name-product')
+        pNameProduct.innerText = list.name;
+
+        let pPriceProduct = document.createElement('p');
+        pPriceProduct.classList.add('price')
+        pPriceProduct.innerText = '$' + list.price;
+
+        let detailDelete = document.createElement('img');
+        detailDelete.setAttribute('src', './icons/icon_close.png');
+        detailDelete.setAttribute('alt', 'delete');
+
+        detailOrder.appendChild(detailFigure);
+        detailOrder.appendChild(pNameProduct);
+        detailOrder.appendChild(pPriceProduct);
+        detailOrder.appendChild(detailDelete);
+
+        orderDetailContainer.appendChild(detailOrder);
+
+    }
+
+
 }
