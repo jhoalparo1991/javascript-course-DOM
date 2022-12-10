@@ -33,7 +33,7 @@
         font-family: 'Quicksand', sans-serif;
       }
 
-      .container {
+      .shopping-cart {
         width: 400px;
         margin-top: 20px;
         display: grid;
@@ -44,12 +44,12 @@
         top: 0;
         margin-right: 10px;
       }
-      .title{
+      .shopping-cart .title{
         font-size: var(--lg);
         color: var(--dark);
         margin-bottom: 30px;
       }
-      .info-order {
+      .shopping-cart .info-order {
         display: grid;
         grid-template-columns: auto 1fr;
         background-color: var(--text-input-field);
@@ -59,25 +59,25 @@
         align-items: center;
       }
 
-      .info-order p:nth-child(1) {
+      .shopping-cart .info-order p:nth-child(1) {
         display: flex;
         flex-direction: column;
         font-weight: bold;
         font-size: var(--sm);
       }
 
-      .info-order p:nth-child(2){
+      .shopping-cart .info-order p:nth-child(2){
         text-align: end;
         font-weight: bold;
         font-size: var(--md);
         color: var(--dark);
       }
-      .detail-order{
+      .shopping-cart .detail-order{
         display: flex;
         flex-direction: column;
       }
 
-      .detail-order .detail{
+      .shopping-cart .detail-order .detail{
         display: grid;
         grid-template-columns: auto 1fr auto auto;
         align-items: center;
@@ -85,32 +85,32 @@
         margin-bottom: 20px;
       }
 
-      .detail-order .detail figure{
+      .shopping-cart .detail-order .detail figure{
         width: 50px;
         height: 50px;
       }
 
-      .detail-order .detail figure img{
+      .shopping-cart .detail-order .detail figure img{
         width: 50px;
         height: 50px;
         object-fit: cover;
         border-radius: 10px;
       }
 
-      .detail-order .detail  .name-product {
+      .shopping-cart .detail-order .detail  .name-product {
         font-weight: 400;
         color: var(--very-light-pink);
         font-size: var(--sm);
       }
 
-      .detail-order .detail  .price {
+      .shopping-cart .detail-order .detail  .price {
         font-weight: bold;
         color: var(--dark);
         font-size: var(--md);
         margin-right: 10px;
       }
 
-      .primary-button{
+      .shopping-cart .primary-button{
         width: 100%;
         padding: 10px;
         border: none;
@@ -122,30 +122,30 @@
         cursor: pointer;
       }
 
-      .close{
+      .shopping-cart .close{
         cursor: pointer;
       }
-      .flechita{
+      .shopping-cart .flechita{
         cursor: pointer;
         transform: rotate(180deg);
         margin-right: 15px;
       }
       @media (max-width:640px){
-        .container{
+        .shopping-cart{
           width: 100%;
           display: flex;
           flex-direction: column;
           padding: 20px;
         }
 
-       .container .order{
+       .shopping-cart .order{
           width: 100% !important;
         }
       }
     </style>
   </head>
   <body>
-    <aside class="container">
+    <aside class="shopping-cart">
       <h1 class="title">
         <img src="./icons/flechita.svg" alt="flechita" class="flechita">  
         Shopping cart
