@@ -33,7 +33,7 @@
             font-family: 'Quicksand', sans-serif;
         }
 
-        .cards-container {
+        .container-products .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, 240px);
             gap: 20px;
@@ -41,11 +41,11 @@
 
         }
 
-        .card-products {
+        .container-products .card-products {
             width: 240px;
         }
 
-        .card-products img {
+        .container-products .card-products img {
             width: 100%;
             height: 240px;
             border-radius: 20px;
@@ -53,35 +53,35 @@
             cursor: pointer;
         }
 
-        .card-products div {
+        .container-products .card-products div {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-top: 12px;
         }
 
-        .card-products div .info {
+        .container-products .card-products div .info {
             display: flex;
             flex-direction: column;
 
         }
 
-        .card-products .price {
+        .container-products .card-products .price {
             font-weight: bold;
             font-size: var(--md);
         }
 
-        .card-products .name-product {
+        .container-products .card-products .name-product {
             font-weight: 300;
             font-size: var(--sm);
         }
 
-        .card-products div figure {
+        .container-products .card-products div figure {
             width: 40px;
             height: 40px;
         }
 
-        .card-products div figure img {
+        .container-products .card-products div figure img {
             width: 100%;
             height: 100%;
             cursor: pointer;
@@ -89,16 +89,16 @@
 
         @media (max-width:640px) {
 
-            .cards-container {
+            .container-products .cards-container {
                 grid-template-columns: repeat(auto-fill, 140px);
                 gap: 10px;
             }
 
-            .card-products {
+            .container-products .card-products {
                 width: 140px;
             }
 
-            .card-products img {
+            .container-products .card-products img {
                 width: 100%;
                 height: 140px;
                 border-radius: 20px;
@@ -106,7 +106,7 @@
             }
 
 
-            .card-products div figure {
+            .container-products .card-products div figure {
                 width: 35px;
                 height: 35px;
             }
@@ -116,7 +116,7 @@
 
 <body>
 
-    <main class="container">
+    <main class="container-products">
         <section class="cards-container">
             <div class="card-products">
                 <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"

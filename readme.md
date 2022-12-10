@@ -9,3 +9,11 @@ Tecnologias usadas en este proceso
 + **html5**
 + **css3**
 
+### Paginas fusionadas
++ menu-mobile
++ menu-desktop
++ Navbar
++ Shopping-cart
++ Home-page
+
+
