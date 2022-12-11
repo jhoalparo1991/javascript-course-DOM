@@ -234,9 +234,9 @@ figure {
     width: 400px;
     margin-top: 20px;
     grid-template-rows: auto 1fr auto;
-    position: absolute;
+    position: fixed;
     right: 0;
-    top: 60px;
+    top: 39px;
     padding-right: 20px;
     background: var(--white);
     padding: 10px;
@@ -528,8 +528,6 @@ figure {
         display: none;
     }
 
-
-
     .email {
         display: none;
     }
@@ -554,7 +552,6 @@ figure {
         border-radius: 20px;
         object-fit: cover;
     }
-
 
     .container-products .card-products div figure {
         width: 35px;

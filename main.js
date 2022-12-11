@@ -20,6 +20,9 @@ const productDetailPrice = document.querySelector('.product-info-price');
 const productDetailName = document.querySelector('.product-info-name');
 const quantityItemsCart = document.querySelector('.quantity p');
 const orderDetailContainer = document.querySelector('.detail-order');
+const totalAmmount = document.querySelector('.total-ammount');
+
+const checkoutButton = document.querySelector('#checkout');
 
 
 toggleMenu.addEventListener('click', toggleMenuDesktop);
@@ -28,6 +31,19 @@ menuShoppingCart.addEventListener('click', toggleShoppingCart);
 
 closeWithArrow.addEventListener('click', toggleShoppingCart)
 closeProductDetail.addEventListener('click', closeDetailProducts)
+
+checkoutButton.addEventListener('click',saveOrder)
+
+function saveOrder(){
+    // let productList = getListProduct();
+    deleteProductList();
+    loadQuantityItemsCart();
+    showOrders();
+}
+
+loadQuantityItemsCart()
+
+showOrders();
 
 function toggleMenuDesktop() {
 
@@ -187,17 +203,14 @@ function selectedProductCart(event) {
     showOrders();
 
 }
-loadQuantityItemsCart()
 function loadQuantityItemsCart() {
     let quantity = getListProduct();
     quantityItemsCart.innerText = quantity.length
 }
 
 
-
-showOrders();
 function showOrders() {
-
+    
     let productList = getListProduct();
     orderDetailContainer.innerHTML = '';
     for (list of productList) {
@@ -222,6 +235,8 @@ function showOrders() {
         let detailDelete = document.createElement('img');
         detailDelete.setAttribute('src', './icons/icon_close.png');
         detailDelete.setAttribute('alt', 'delete');
+        detailDelete.setAttribute('data-id', list.id);
+        detailDelete.addEventListener('click',e => deleteProductCart(e))
 
         detailOrder.appendChild(detailFigure);
         detailOrder.appendChild(pNameProduct);
@@ -232,5 +247,24 @@ function showOrders() {
 
     }
 
+    let ammount = [];
+    productList.forEach( item => {
+        ammount.push(item.price);
 
+    });
+
+    let total = ammount.reduce((previousValue,currentValue) => previousValue + currentValue, 0)
+    totalAmmount.textContent = '$ ' + total;
+
+}
+
+function deleteProductCart(e){
+    let id = e.target.getAttribute('data-id');
+
+    let productList = getListProduct();
+
+    let result = productList.filter(data => data.id != id);
+    deleteProductCartStorage(result);
+    loadQuantityItemsCart();
+    showOrders();
 }
